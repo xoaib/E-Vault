@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Documents - Legal E-Vault</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <a href="index.html" class="logo">
+            <i class="fas fa-folder icon-folder"></i>
+            <h1>Legal E-Vault</h1>
+          </a>
+          <div class="desktop-nav">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i>
+              Dashboard
+            </a>
+            <a href="upload.html" class="nav-link">
+              <i class="fas fa-upload"></i>
+              Upload
+            </a>
+            <a href="documents.html" class="nav-link active">
+              <i class="fas fa-folder"></i>
+              Documents
+            </a>
+            <button id="connectWalletBtn" class="btn btn-primary">
+              Connect Wallet
+            </button>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-header">Menu</div>
+        <div class="mobile-menu-body">
+          <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            Dashboard
+          </a>
+          <a href="upload.html" class="mobile-nav-link">
+            <i class="fas fa-upload"></i>
+            Upload
+          </a>
+          <a href="documents.html" class="mobile-nav-link active">
+            <i class="fas fa-folder"></i>
+            Documents
+          </a>
+          <button id="mobileConnectWalletBtn" class="btn btn-primary btn-full">
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <div class="documents-header">
+              <div>
+                <h2 class="card-title">Legal Documents</h2>
+                <p class="card-subtitle">Manage and access your stored documents</p>
+              </div>
+              <div class="documents-actions">
+                <div class="search-container">
+                  <i class="fas fa-search search-icon"></i>
+                  <input type="text" id="searchInput" class="search-input" placeholder="Search documents...">
+                </div>
+                <div class="filter-container">
+                  <i class="fas fa-filter filter-icon"></i>
+                  <select id="categoryFilter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="contract">Contracts</option>
+                    <option value="court-filing">Court Filings</option>
+                    <option value="agreement">Agreements</option>
+                    <option value="certificate">Certificates</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-container">
+              <table class="table" id="documentsTable">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Size</th>
+                    <th>IPFS Hash</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="documentsTableBody">
+                  <!-- Table content will be populated by JavaScript -->
+                </tbody>
+              </table>
+              <div id="noDocumentsMessage" class="no-documents hidden">
+                <p>No documents found</p>
+                <p class="no-documents-help">Try adjusting your search or filter criteria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script src="js/contracts.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/documents.js"></script>
+</body>
+</html>

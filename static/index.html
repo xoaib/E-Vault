@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal E-Vault</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <a href="index.html" class="logo">
+            <i class="fas fa-folder icon-folder"></i>
+            <h1>Legal E-Vault</h1>
+          </a>
+          <div class="desktop-nav">
+            <a href="index.html" class="nav-link active">
+              <i class="fas fa-home"></i>
+              Dashboard
+            </a>
+            <a href="upload.html" class="nav-link">
+              <i class="fas fa-upload"></i>
+              Upload
+            </a>
+            <a href="documents.html" class="nav-link">
+              <i class="fas fa-folder"></i>
+              Documents
+            </a>
+            <button id="connectWalletBtn" class="btn btn-primary">
+              Connect Wallet
+            </button>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-header">Menu</div>
+        <div class="mobile-menu-body">
+          <a href="index.html" class="mobile-nav-link active">
+            <i class="fas fa-home"></i>
+            Dashboard
+          </a>
+          <a href="upload.html" class="mobile-nav-link">
+            <i class="fas fa-upload"></i>
+            Upload
+          </a>
+          <a href="documents.html" class="mobile-nav-link">
+            <i class="fas fa-folder"></i>
+            Documents
+          </a>
+          <button id="mobileConnectWalletBtn" class="btn btn-primary btn-full">
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+          <div class="dashboard-title">
+            <h1>Welcome to Legal E-Vault</h1>
+            <p>Your secure blockchain-based document management system</p>
+          </div>
+          <div class="system-status-card">
+            <p class="status-title">System Status</p>
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span>All Systems Operational</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-content">
+              <div>
+                <div class="stat-label">Total Documents</div>
+                <div class="stat-number blue">24</div>
+                <div class="stat-help">
+                  <span class="green">↑ 12%</span> from last month
+                </div>
+              </div>
+              <i class="fas fa-file stat-icon blue"></i>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <div>
+                <div class="stat-label">Storage Used</div>
+                <div class="stat-number purple">128 MB</div>
+                <div class="stat-help">of 1 GB limit</div>
+              </div>
+              <i class="fas fa-hdd stat-icon purple"></i>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <div>
+                <div class="stat-label">Uploads Today</div>
+                <div class="stat-number green">7</div>
+                <div class="stat-help">
+                  <span class="green">↑ 8%</span> from yesterday
+                </div>
+              </div>
+              <i class="fas fa-upload stat-icon green"></i>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <div>
+                <div class="stat-label">Network Status</div>
+                <div class="stat-number orange">Active</div>
+                <div class="stat-help">Ethereum Testnnet</div>
+              </div>
+              <i class="fas fa-shield-alt stat-icon orange"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity and Storage -->
+        <div class="dashboard-grid">
+          <!-- Recent Activity -->
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Recent Activity</h2>
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>Document</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Upload</td>
+                      <td><span class="document-name">Contract Agreement.pdf</span></td>
+                      <td>2024-02-20</td>
+                      <td><span class="badge success">success</span></td>
+                    </tr>
+                    <tr>
+                      <td>View</td>
+                      <td><span class="document-name">Legal Certificate.pdf</span></td>
+                      <td>2024-02-19</td>
+                      <td><span class="badge info">info</span></td>
+                    </tr>
+                    <tr>
+                      <td>Download</td>
+                      <td><span class="document-name">Court Filing.pdf</span></td>
+                      <td>2024-02-18</td>
+                      <td><span class="badge success">success</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Storage Distribution -->
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Storage Distribution</h2>
+              <div class="progress-stack">
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-label">Contracts</span>
+                    <span class="progress-value blue">40%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill blue" style="width: 40%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-label">Court Filings</span>
+                    <span class="progress-value purple">25%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill purple" style="width: 25%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-label">Agreements</span>
+                    <span class="progress-value green">20%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill green" style="width: 20%"></div>
+                  </div>
+                </div>
+
+                <div class="progress-item">
+                  <div class="progress-header">
+                    <span class="progress-label">Certificates</span>
+                    <span class="progress-value orange">15%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill orange" style="width: 15%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script src="js/ipfs.js"></script>
+  <script src="js/contracts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

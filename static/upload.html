@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Document - Legal E-Vault</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <a href="index.html" class="logo">
+            <i class="fas fa-folder icon-folder"></i>
+            <h1>Legal E-Vault</h1>
+          </a>
+          <div class="desktop-nav">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i>
+              Dashboard
+            </a>
+            <a href="upload.html" class="nav-link active">
+              <i class="fas fa-upload"></i>
+              Upload
+            </a>
+            <a href="documents.html" class="nav-link">
+              <i class="fas fa-folder"></i>
+              Documents
+            </a>
+            <button id="connectWalletBtn" class="btn btn-primary">
+              Connect Wallet
+            </button>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-header">Menu</div>
+        <div class="mobile-menu-body">
+          <a href="index.html" class="mobile-nav-link">
+            <i class="fas fa-home"></i>
+            Dashboard
+          </a>
+          <a href="upload.html" class="mobile-nav-link active">
+            <i class="fas fa-upload"></i>
+            Upload
+          </a>
+          <a href="documents.html" class="mobile-nav-link">
+            <i class="fas fa-folder"></i>
+            Documents
+          </a>
+          <button id="mobileConnectWalletBtn" class="btn btn-primary btn-full">
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <div class="upload-container">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">Upload Legal Document</h2>
+              
+              <div id="walletWarning" class="alert warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                  <div class="alert-title">Wallet Not Detected</div>
+                  <div class="alert-description">
+                    Please install MetaMask or another Web3 wallet to upload documents.
+                  </div>
+                </div>
+              </div>
+              
+              <form id="uploadForm" class="upload-form">
+                <div class="form-group">
+                  <label for="title" class="form-label">Document Title <span class="required">*</span></label>
+                  <input type="text" id="title" name="title" class="form-input" placeholder="Enter document title" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="category" class="form-label">Category <span class="required">*</span></label>
+                  <select id="category" name="category" class="form-select" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="contract">Contract</option>
+                    <option value="court-filing">Court Filing</option>
+                    <option value="agreement">Agreement</option>
+                    <option value="certificate">Certificate</option>
+                    <option value="legal-notice">Legal Notice</option>
+                    <option value="power-of-attorney">Power of Attorney</option>
+                    <option value="affidavit">Affidavit</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea id="description" name="description" class="form-textarea" placeholder="Enter document description"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Tags</label>
+                  <div class="tag-input-container">
+                    <input type="text" id="tagInput" class="form-input" placeholder="Add tags">
+                    <button type="button" id="addTagBtn" class="btn btn-primary">Add</button>
+                  </div>
+                  <div id="tagContainer" class="tag-container"></div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-group switch-group">
+                  <label class="form-label">Confidential Document</label>
+                  <label class="switch">
+                    <input type="checkbox" id="isConfidential">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+
+                <div id="accessListContainer" class="form-group hidden">
+                  <label class="form-label">Authorized Addresses</label>
+                  <div class="tag-input-container">
+                    <input type="text" id="accessInput" class="form-input" placeholder="Enter Ethereum address">
+                    <button type="button" id="addAccessBtn" class="btn btn-primary">Add</button>
+                  </div>
+                  <div id="accessAddressContainer" class="access-address-container"></div>
+                </div>
+
+                <div class="form-group">
+                  <label for="expiryDate" class="form-label">Expiry Date (Optional)</label>
+                  <input type="date" id="expiryDate" name="expiryDate" class="form-input">
+                </div>
+
+                <div class="form-group">
+                  <label for="documentFile" class="form-label">Document File <span class="required">*</span></label>
+                  <input type="file" id="documentFile" name="documentFile" class="form-file" accept=".pdf,.doc,.docx,.txt" required>
+                  <p class="form-help">Supported formats: PDF, DOC, DOCX, TXT (Max size: 10MB)</p>
+                </div>
+
+                <button type="submit" id="uploadBtn" class="btn btn-primary btn-full btn-lg">
+                  Upload Document
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+  <script src="js/contracts.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>
